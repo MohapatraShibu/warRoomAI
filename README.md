@@ -144,7 +144,7 @@ The full structured output (`war_room_output.json`) contains:
 
 ```
 warRoomAI/
-├── venv/                    # Virtual environment
+├── venv/                    
 ├── data/
 │   ├── metrics.json         # 10-day time series for 10 metrics
 │   ├── feedback.json        # 35 user feedback entries
