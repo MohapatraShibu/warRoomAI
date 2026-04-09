@@ -1,0 +1,78 @@
+{
+  "feature": "SmartRecommend v2.0",
+  "launch_date": "2025-01-08",
+  "metrics": {
+    "activation_conversion_pct": [
+      {"day": 1, "value": 62.1}, {"day": 2, "value": 61.8}, {"day": 3, "value": 63.2},
+      {"day": 4, "value": 60.5}, {"day": 5, "value": 58.3}, {"day": 6, "value": 55.1},
+      {"day": 7, "value": 53.4}, {"day": 8, "value": 51.2}, {"day": 9, "value": 50.8},
+      {"day": 10, "value": 49.6}
+    ],
+    "dau_wau_ratio": [
+      {"day": 1, "value": 0.41}, {"day": 2, "value": 0.42}, {"day": 3, "value": 0.43},
+      {"day": 4, "value": 0.40}, {"day": 5, "value": 0.38}, {"day": 6, "value": 0.36},
+      {"day": 7, "value": 0.35}, {"day": 8, "value": 0.34}, {"day": 9, "value": 0.33},
+      {"day": 10, "value": 0.32}
+    ],
+    "d1_retention_pct": [
+      {"day": 1, "value": 48.2}, {"day": 2, "value": 47.9}, {"day": 3, "value": 47.5},
+      {"day": 4, "value": 46.1}, {"day": 5, "value": 44.8}, {"day": 6, "value": 43.2},
+      {"day": 7, "value": 41.9}, {"day": 8, "value": 40.5}, {"day": 9, "value": 39.8},
+      {"day": 10, "value": 38.7}
+    ],
+    "d7_retention_pct": [
+      {"day": 1, "value": 22.1}, {"day": 2, "value": 21.8}, {"day": 3, "value": 21.5},
+      {"day": 4, "value": 20.9}, {"day": 5, "value": 20.1}, {"day": 6, "value": 19.4},
+      {"day": 7, "value": 18.8}, {"day": 8, "value": 18.1}, {"day": 9, "value": 17.6},
+      {"day": 10, "value": 17.0}
+    ],
+    "crash_rate_pct": [
+      {"day": 1, "value": 0.8}, {"day": 2, "value": 0.9}, {"day": 3, "value": 1.1},
+      {"day": 4, "value": 1.4}, {"day": 5, "value": 1.8}, {"day": 6, "value": 2.3},
+      {"day": 7, "value": 2.9}, {"day": 8, "value": 3.4}, {"day": 9, "value": 3.8},
+      {"day": 10, "value": 4.2}
+    ],
+    "api_latency_p95_ms": [
+      {"day": 1, "value": 210}, {"day": 2, "value": 215}, {"day": 3, "value": 230},
+      {"day": 4, "value": 265}, {"day": 5, "value": 310}, {"day": 6, "value": 380},
+      {"day": 7, "value": 450}, {"day": 8, "value": 520}, {"day": 9, "value": 590},
+      {"day": 10, "value": 640}
+    ],
+    "payment_success_rate_pct": [
+      {"day": 1, "value": 97.8}, {"day": 2, "value": 97.6}, {"day": 3, "value": 97.5},
+      {"day": 4, "value": 97.1}, {"day": 5, "value": 96.8}, {"day": 6, "value": 96.2},
+      {"day": 7, "value": 95.5}, {"day": 8, "value": 94.9}, {"day": 9, "value": 94.3},
+      {"day": 10, "value": 93.8}
+    ],
+    "support_ticket_volume": [
+      {"day": 1, "value": 42}, {"day": 2, "value": 45}, {"day": 3, "value": 51},
+      {"day": 4, "value": 63}, {"day": 5, "value": 78}, {"day": 6, "value": 95},
+      {"day": 7, "value": 118}, {"day": 8, "value": 134}, {"day": 9, "value": 152},
+      {"day": 10, "value": 171}
+    ],
+    "feature_adoption_funnel_pct": [
+      {"day": 1, "value": 38.5}, {"day": 2, "value": 37.9}, {"day": 3, "value": 37.1},
+      {"day": 4, "value": 35.8}, {"day": 5, "value": 34.2}, {"day": 6, "value": 32.5},
+      {"day": 7, "value": 30.8}, {"day": 8, "value": 29.4}, {"day": 9, "value": 28.1},
+      {"day": 10, "value": 26.9}
+    ],
+    "daily_cancellations": [
+      {"day": 1, "value": 18}, {"day": 2, "value": 19}, {"day": 3, "value": 22},
+      {"day": 4, "value": 27}, {"day": 5, "value": 31}, {"day": 6, "value": 38},
+      {"day": 7, "value": 44}, {"day": 8, "value": 51}, {"day": 9, "value": 57},
+      {"day": 10, "value": 63}
+    ]
+  },
+  "baselines": {
+    "activation_conversion_pct": 63.0,
+    "dau_wau_ratio": 0.42,
+    "d1_retention_pct": 48.0,
+    "d7_retention_pct": 22.0,
+    "crash_rate_pct": 0.8,
+    "api_latency_p95_ms": 220,
+    "payment_success_rate_pct": 97.9,
+    "support_ticket_volume": 43,
+    "feature_adoption_funnel_pct": 38.0,
+    "daily_cancellations": 18
+  }
+}
