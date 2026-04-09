@@ -156,5 +156,7 @@ warRoomAI/
 ├── main.py                  # Entry point
 ├── requirements.txt
 ├── .env.example
+├── .gitignore
+├── war_room_output.json
 └── README.md
 ```
