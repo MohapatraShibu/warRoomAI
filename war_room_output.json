@@ -1,0 +1,138 @@
+{
+  "war_room_session": {
+    "timestamp": "2026-04-09T14:36:01.019943+00:00",
+    "feature": "SmartRecommend v2.0",
+    "agents_involved": [
+      "DataAnalyst",
+      "PM",
+      "Marketing",
+      "Risk",
+      "Orchestrator"
+    ]
+  },
+  "decision": "Roll Back",
+  "rationale": {
+    "summary": "Decision: Roll Back\nCritical anomalies: 4, High: 1\nCriteria passed: 0/4\nSentiment score: 30.0/100\nKey drivers: crash rate 4.2x baseline, payment failures, API latency 3x baseline, accelerating support tickets and cancellations.",
+    "metric_references": [
+      "crash_rate_pct: +425.0% vs baseline [critical]",
+      "support_ticket_volume: +297.7% vs baseline [critical]",
+      "daily_cancellations: +250.0% vs baseline [critical]",
+      "api_latency_p95_ms: +190.9% vs baseline [critical]"
+    ],
+    "feedback_summary": {
+      "sentiment_score": 30.0,
+      "negative_count": 21,
+      "top_themes": [
+        "crash / stability",
+        "payment failures",
+        "performance / latency"
+      ]
+    },
+    "criteria_passed": "0/4"
+  },
+  "risk_register": [
+    {
+      "risk": "Crash rate 4.2x above baseline (Android WebView known issue)",
+      "likelihood": "High",
+      "impact": "High",
+      "mitigation": "Hotfix for Android WebView crash; feature-flag disable for affected devices"
+    },
+    {
+      "risk": "Payment success rate declining \u2014 revenue leakage risk",
+      "likelihood": "High",
+      "impact": "Critical",
+      "mitigation": "Revert payment pre-fill integration; patch legacy token handling"
+    },
+    {
+      "risk": "API latency p95 at 640ms (3x baseline) \u2014 auto-scaling lag unresolved",
+      "likelihood": "High",
+      "impact": "High",
+      "mitigation": "Pre-warm recommend-svc replicas; lower auto-scale trigger to 50% CPU"
+    },
+    {
+      "risk": "Daily cancellations 3.5x baseline \u2014 retention crisis if unaddressed",
+      "likelihood": "Medium",
+      "impact": "High",
+      "mitigation": "Pause full rollout; offer affected users service credit"
+    }
+  ],
+  "action_plan_24_48h": [
+    {
+      "priority": 1,
+      "action": "Disable SmartRecommend v2 for Android 10 devices via feature flag",
+      "owner": "Engineering",
+      "window": "0\u20134 hours"
+    },
+    {
+      "priority": 2,
+      "action": "Revert payment pre-fill integration; restore legacy token compatibility",
+      "owner": "Engineering / Payments",
+      "window": "0\u20136 hours"
+    },
+    {
+      "priority": 3,
+      "action": "Pre-warm recommend-svc replicas; lower auto-scale CPU trigger to 50%",
+      "owner": "Platform/SRE",
+      "window": "0\u20134 hours"
+    },
+    {
+      "priority": 4,
+      "action": "Publish status page update acknowledging performance degradation",
+      "owner": "Marketing/Comms",
+      "window": "0\u20132 hours"
+    },
+    {
+      "priority": 5,
+      "action": "Deploy self-serve FAQ for top 3 support ticket categories",
+      "owner": "Support / Product",
+      "window": "4\u201312 hours"
+    },
+    {
+      "priority": 6,
+      "action": "Ship Android WebView crash hotfix and validate on staging",
+      "owner": "Engineering",
+      "window": "12\u201324 hours"
+    },
+    {
+      "priority": 7,
+      "action": "Update recommendation model with current catalogue (fix out-of-stock SKUs)",
+      "owner": "ML / Data",
+      "window": "24\u201348 hours"
+    },
+    {
+      "priority": 8,
+      "action": "War room check-in: review all metrics post-fixes before resuming rollout",
+      "owner": "PM + All Leads",
+      "window": "48 hours"
+    }
+  ],
+  "communication_plan": {
+    "internal": [
+      "Immediate Slack alert to #engineering-oncall: crash rate and payment failures require P1 response",
+      "Executive summary to VP Product and CTO within 1 hour",
+      "Daily war room standup at 09:00 until metrics stabilise"
+    ],
+    "external": [
+      "Status page update: 'We are aware of performance issues affecting some users and are actively working on a fix'",
+      "Email to affected users (payment failures) within 4 hours with apology and resolution ETA",
+      "Hold all promotional campaigns for SmartRecommend v2 until Proceed decision",
+      "Community forum post acknowledging crash reports with workaround instructions"
+    ]
+  },
+  "confidence": {
+    "score": 92,
+    "confidence_boosters": [
+      "Crash rate resolved below 1%",
+      "Payment success rate back above 97%",
+      "API latency p95 below 300ms",
+      "Support ticket volume stabilising",
+      "Android WebView hotfix shipped"
+    ]
+  },
+  "agent_outputs": {
+    "data_analyst": "Rule-based metric analysis:\n  - crash_rate_pct: +425.0% vs baseline [critical]\n  - support_ticket_volume: +297.7% vs baseline [critical]\n  - daily_cancellations: +250.0% vs baseline [critical]\n  - api_latency_p95_ms: +190.9% vs baseline [critical]\n  - feature_adoption_funnel_pct: -29.2% vs baseline [high]\n  - dau_wau_ratio: -23.8% vs baseline [medium]\n  - d7_retention_pct: -22.7% vs baseline [medium]\n  - activation_conversion_pct: -21.3% vs baseline [medium]\n  - d1_retention_pct: -19.4% vs baseline [medium]\nCritical anomalies: 4, High: 1",
+    "pm": "Go/No-Go Assessment: FAIL\n  \u2717 crash_rate_below_1pct\n  \u2717 payment_success_above_97pct\n  \u2717 no_critical_anomalies\n  \u2717 support_tickets_stable\nCritical issues: 4, High issues: 1\nRecommendation: Pause rollout pending crash rate and payment fixes.",
+    "marketing": "Sentiment score: 30.0/100 (negative-leaning)\nNegative: 21, Positive: 7, Neutral: 7\nTop negative themes: crash / stability (8), payment failures (6), performance / latency (3)\nComms posture: Proactive acknowledgement required. Do NOT promote feature externally.\nInternal: Escalate to engineering immediately. External: Status page update + email to affected users.",
+    "risk": "Risk assessment: ROLL BACK or PAUSE strongly recommended.\n4 risks identified:\n  [High/High] Crash rate 4.2x above baseline (Android WebView known issue)\n  [High/Critical] Payment success rate declining \u2014 revenue leakage risk\n  [High/High] API latency p95 at 640ms (3x baseline) \u2014 auto-scaling lag unresolved\n  [Medium/High] Daily cancellations 3.5x baseline \u2014 retention crisis if unaddressed\nKey assumption challenged: 'Canary looked fine' \u2014 canary was only 10% traffic; issues emerged at scale."
+  }
+}
