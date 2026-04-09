@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-OLLAMA_BASE = os.getenv("OLLAMA_BASE_URL")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL")
+OLLAMA_URL = os.environ["OLLAMA_URL"]
+OLLAMA_MODEL = os.environ["OLLAMA_MODEL"]
 logger = logging.getLogger(__name__)
 
 def _call_ollama(system: str, user: str) -> str | None:
