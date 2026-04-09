@@ -74,11 +74,11 @@ cp .env.example .env
 ```bash
 # install Ollama from https://ollama.com/download
 # then pull a model:
-ollama pull llama3.2      # 2GB, recommended
+ollama pull llama3.2
 # or
-ollama pull mistral       # 4GB
+ollama pull mistral
 # or
-ollama pull gemma3        # 3GB
+ollama pull gemma3
 ```
 
 > **Without Ollama**: The system runs fully with rule-based logic. All tools, agent coordination, and structured output work identically - only the natural-language reasoning text is replaced with deterministic summaries.
