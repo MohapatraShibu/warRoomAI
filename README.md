@@ -1,4 +1,4 @@
-# PurpleMerit War Room AI
+# War Room AI
 
 A multi-agent system that simulates a cross-functional war room during a product launch. Agents analyse a mock dashboard (metrics + user feedback) and produce a structured launch decision: **Proceed / Pause / Roll Back**.
 
